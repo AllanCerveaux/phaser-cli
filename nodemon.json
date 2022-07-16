@@ -1,0 +1,23 @@
+{
+  "verbose": true,
+  "restartable": "rs",
+  "ignore": [
+    "./bin/*.js",
+    "./build/*.js",
+    ".git",
+    "node_modules/**/node_modules",
+    "./src/**/*.spec.ts",
+    "./src/templates/**/*"
+  ],
+  "execMap": {
+    "js": "ts-node ./esbuild.config.js"
+  },
+  "watch": [
+    "./src/*.ts",
+    "./src/commands/**/*"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts,json"
+}
