@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "typeRoots": ["node_modules/phaser/types/", "./types", "node_modules/@types/"],
+    "baseUrl": "src",
+    "paths": {
+      "@game/*": ["scripts/*"],
+      "@scenes/*" : ["scripts/scenes/*"],
+      "@objects/*" : ["scripts/objects/*"],
+      "@utils/*" : ["scripts/utils/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
