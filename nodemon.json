@@ -14,7 +14,9 @@
   },
   "watch": [
     "./src/*.ts",
-    "./src/commands/**/*"
+    "./src/commands/**/*.ts",
+    "./src/arguments/**/*.ts",
+    "./src/options/**/*.ts"
   ],
   "env": {
     "NODE_ENV": "development"

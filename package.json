@@ -15,10 +15,11 @@
     "build": "node ./esbuild.config.js && yarn ts-types"
   },
   "dependencies": {
-    "chalk": "^5.0.1",
+    "@types/project-name-generator": "^2.1.1",
+    "@types/prompts": "^2.0.14",
     "commander": "^9.3.0",
-    "inquirer": "^9.0.0",
     "project-name-generator": "^2.1.9",
+    "prompts": "^2.4.2",
     "tea-parser": "^0.0.2"
   },
   "devDependencies": {

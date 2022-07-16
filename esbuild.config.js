@@ -12,7 +12,7 @@ import { build } from 'esbuild';
     splitting: true,
     format: 'esm',
     platform: 'node',
-    target: ['ESNext'],
+    target: ['es6', 'esnext'],
     plugins: [commonjs()]
   }).catch(() => process.exit(1))
   console.log('🎊 App has build 🎉')

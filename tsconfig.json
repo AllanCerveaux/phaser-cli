@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "outDir": "build",
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["esnext"],
     "moduleResolution": "node",
+    "allowJs": true,
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -17,7 +18,7 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "strict": true
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"],
