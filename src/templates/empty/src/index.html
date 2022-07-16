@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="./manifest.json" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="{{ project_name }}" />
+    <meta name="apple-mobile-web-app-title" content="{{ project_name }}" />
+    <meta name="msapplication-starturl" content="./" />
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+
+    <title>{{ project_name }}</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background-color: #000000;
+      }
+    </style>
+
+    <noscript>Please enable javascript to continue using this application.</noscript>
+  </head>
+  <body>
+    <div id="phaser-game"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
