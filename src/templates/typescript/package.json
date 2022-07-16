@@ -11,9 +11,7 @@
     "predeploy": "yarn rimraf dist && yarn build",
     "deploy": "gh-pages -d dist"
   },
-  "dependencies": {
-    "phaser": "^3.55.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^18.0.3",
     "create-serve": "^1.0.1",
