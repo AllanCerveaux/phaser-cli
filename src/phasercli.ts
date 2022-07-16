@@ -1,7 +1,12 @@
+import { description, name, version } from '../package.json'
+
 import { Command } from 'commander'
+import CreateProject from './commands/CreateProject'
 
-const program = new Command()
+export const program = new Command()
 
-program.name('phaser-cli').description('Generate phaser project !').version('0.0.1')
+const phasercli = program.name(name).description(description).version(version)
 
-export default program
+phasercli.addCommand(CreateProject())
+
+export default phasercli
