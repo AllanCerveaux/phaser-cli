@@ -3,6 +3,7 @@ import { join, resolve } from 'path'
 
 import { Tea } from 'tea-parser'
 import { __dirname } from '../utils'
+import { existsSync } from 'fs'
 import generate from 'project-name-generator'
 import prompts from 'prompts'
 import { spawn } from 'child_process'
@@ -18,9 +19,12 @@ function CreateProject() {
         'empty'
       ])
     )
+    .addOption(
+      new Option('-pm, --package-manager <package_manager>', 'choose package manager :').choices(['npm', 'yarn'])
+    )
     .addOption(new Option('-pv, --phaser <phaser_version>', 'choose phaser version :').choices(['phaser-ce', 'phaser']))
     .action(async (project_name, option) => {
-      let { template, phaser_version } = option
+      let { template, phaser_version, package_manager } = option
       if (!project_name) {
         project_name = (
           await prompts({
@@ -40,13 +44,27 @@ function CreateProject() {
             choices: [
               { title: 'Javascript', value: 'javascript' },
               { title: 'Typescript', value: 'typescript' },
-              { title: 'Empty', value: 'empty', description: 'without all scripts' }
+              { title: 'Empty', value: 'empty', description: 'Template without script and configuration' }
             ],
             initial: 0
           })
         ).template
       }
-      await Tea(join(__dirname, `../src/templates/${template}`), resolve(project_name), { project_name })
+      if (!package_manager) {
+        package_manager = (
+          await prompts({
+            type: 'select',
+            name: 'pm',
+            message: 'Pick a package manager',
+            choices: [
+              { title: 'NPM', value: 'npm' },
+              { title: 'Yarn', value: 'yarn' }
+            ],
+            initial: 0
+          })
+        ).pm
+      }
+
       if (!phaser_version) {
         phaser_version = (
           await prompts({
@@ -60,21 +78,29 @@ function CreateProject() {
             initial: 0
           })
         ).phaser_version
-        const install_phaser = await spawn(`npm`, ['install', phaser_version], {
-          stdio: [0, 1, 2],
-          cwd: resolve(project_name)
-        })
-        install_phaser.stdout?.on('data', data => console.log(data))
-        install_phaser.stderr?.on('data', data => console.log(data))
-        install_phaser.on('error', error => console.log(error))
-
-        const install = await spawn(`npm`, ['install'], { stdio: [0, 1, 2], cwd: resolve(project_name) })
-        install.stdout?.on('data', data => console.log(data))
-        install.stderr?.on('data', data => console.log(data))
-        install.on('error', error => console.log(error))
       }
+
+      await Tea(join(__dirname, `../src/templates/${template}`), resolve(project_name), { project_name })
+      if (existsSync(resolve(project_name))) install_package(package_manager, phaser_version, resolve(project_name))
     })
   return cmd
+}
+
+async function install_package(package_manager: string, phaser_version: string, project_name: string) {
+  const install_arg = package_manager === 'yarn' ? 'add' : 'install'
+
+  const install = await spawn(package_manager, [install_arg], { stdio: [0, 1, 2], cwd: resolve(project_name) })
+  install.stdout?.on('data', data => console.log(data))
+  install.stderr?.on('data', data => console.log(data))
+  install.on('error', error => console.log(error))
+
+  const install_phaser = await spawn(package_manager, [install_arg, phaser_version], {
+    stdio: [0, 1, 2],
+    cwd: resolve(project_name)
+  })
+  install_phaser.stdout?.on('data', data => console.log(data))
+  install_phaser.stderr?.on('data', data => console.log(data))
+  install_phaser.on('error', error => console.log(error))
 }
 
 export default CreateProject
