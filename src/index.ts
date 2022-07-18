@@ -1,4 +1,4 @@
-import program from './phasercli'
+import program from './cli/phasercli'
 
 const cmd = () => program.parse(process.argv)
 

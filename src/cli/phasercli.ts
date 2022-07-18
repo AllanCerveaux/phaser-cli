@@ -1,7 +1,7 @@
-import { description, name, version } from '../package.json'
+import { description, name, version } from '../../package.json'
 
 import { Command } from 'commander'
-import CreateProject from './commands/CreateProject'
+import CreateProject from './commands/create-project'
 
 export const program = new Command()
 
