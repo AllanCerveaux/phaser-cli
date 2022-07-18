@@ -18,7 +18,7 @@
   [![Stargazers][stars-shield]][stars-url]
   [![Issues][issues-shield]][issues-url]
   [![MIT License][license-shield]][license-url]
-  [![NPM][npm-shield]](https://www.npmjs.com/package/phaser-cli)
+  <!-- [![NPM][npm-shield]](https://www.npmjs.com/package/phaser-cli) -->
 </div>
 
 ## Table of Contents
@@ -36,7 +36,9 @@
   - [Credit](#credit)
 
 ## About The Project
+`Phaser-CLI` is a tool that will generate a development environment with templates defined in: javascript, typescript, blank.
 
+For the moment it will be able to perform only this feature, if you want to know more about the next features that should be integrated look at the [Roadmap](#roadmap)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -47,17 +49,27 @@
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## **Prerequisites**
-
-## Usage
+```
+node: >=14.20.X 
+npm: >=6.14.X
+```
+<!-- ## Usage
 
 ### **Installation**
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 ## Development
-
+If you want [contibute](#contributing) or just get the repo.
+> Don't forget fork the repo.
 ### **Installation**
-
+```bash
+> git clone https://github.com/AllanCerveaux/pharser-cli
+> [npm|yarn] install
+> [npm|yarn] run watch # to start project
+> [npm|yarn] install -g . # for testing in cli
+> [npm|yarn] run build # build project
+```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -67,10 +79,17 @@
 
 - [x] Project Scaffolding
   - [X] Create new project from template [JAVASCRIPT|TYPESCRIPT|EMPTY]
+  - [ ] Externalize template
+  - [ ] Package Manager
+    - [X] Choose your package manager [NOONE|NPM|YARN]
+    - [X] Install package automatically if package manager is selected
+    - [ ] more option...
+  - [ ] Git
+    - [ ] Just init and first commit in repository
   - [ ] Create files from template [SCENE|OBJECT|PLUGINS|DECORATOR...]
 - [ ] Server
   - [ ] Start Server from CLI command
-  - [ ] Add config file to start with own config file
+  - [ ] Add a configuration file to start with its own configuration file
 - [ ] Build
   - [ ] Build project from CLI command
   - [ ] Add config file to start with own config file
@@ -119,7 +138,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Allan Cerveaux - [@AllanCerveaux](https://twitter.com/CerveauxAllan)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/AllanCerveaux/phaser-cli](https://github.com/AllanCerveaux/phaser-cli)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
