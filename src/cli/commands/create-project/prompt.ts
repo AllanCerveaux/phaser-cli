@@ -1,7 +1,7 @@
 import generate from 'project-name-generator'
 import prompts from 'prompts'
 
-async function Prompt({ project_name, template, phaser_version, package_manager }: any) {
+async function Prompt({ project_name, template, phaser_version, package_manager, no_install }: any) {
   const questions = [
     {
       type: () => (!project_name ? 'text' : null),
@@ -21,12 +21,13 @@ async function Prompt({ project_name, template, phaser_version, package_manager 
       initial: 0
     },
     {
-      type: () => (!package_manager ? 'select' : null),
+      type: () => (!no_install && !package_manager ? 'select' : null),
       name: 'pm',
       message: 'Pick a package manager',
       choices: [
-        { title: 'NPM', value: 'npm' },
-        { title: 'Yarn', value: 'yarn' }
+        { title: 'Noone', value: 'noone', description: 'No package manager is chosen' },
+        { title: 'NPM', value: 'npm', description: 'Run project with npm' },
+        { title: 'Yarn', value: 'yarn', description: 'Run project with yarn' }
       ],
       initial: 0
     },
