@@ -1,11 +1,11 @@
 import { Command, Option } from 'commander'
 import { join, resolve } from 'path'
 
-import Prompt from './prompt'
+import { existsSync } from 'fs'
 import { Tea } from 'tea-parser'
 import { __dirname } from '../../../utils'
-import { existsSync } from 'fs'
 import install from './install'
+import Prompt from './prompt'
 
 function CreateProject() {
   const cmd = new Command('create')
@@ -15,7 +15,7 @@ function CreateProject() {
       new Option('-t, --template <template>', 'choose the template you want :').choices([
         'typescript',
         'javascript',
-        'empty'
+        'blank'
       ])
     )
     .addOption(

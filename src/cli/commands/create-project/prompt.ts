@@ -16,7 +16,7 @@ async function Prompt({ project_name, template, phaser_version, package_manager,
       choices: [
         { title: 'Javascript', value: 'javascript' },
         { title: 'Typescript', value: 'typescript' },
-        { title: 'Empty', value: 'empty', description: 'Template without script and configuration' }
+        { title: 'Blank', value: 'blank', description: 'Template without script and configuration' }
       ],
       initial: 0
     },
