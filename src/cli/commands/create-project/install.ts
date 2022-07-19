@@ -1,4 +1,4 @@
-import { commandExist } from '../../../utils'
+import { commandExist } from '@utils/'
 import { existsSync } from 'fs'
 import { resolve } from 'path'
 import { spawn } from 'child_process'
