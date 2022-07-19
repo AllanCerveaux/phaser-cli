@@ -18,7 +18,13 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@cli/*": ["cli/*"],
+      "@templates/*": ["templates/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"],
