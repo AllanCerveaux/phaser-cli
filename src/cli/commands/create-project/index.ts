@@ -1,11 +1,14 @@
 import { Command, Option } from 'commander'
 import { join, resolve } from 'path'
 
+import { Logger } from '@utils/Logger'
 import Prompt from './prompt'
 import { Tea } from 'tea-parser'
-import { __dirname } from '@utils/'
+import { __dirname } from '@utils/_path'
 import { existsSync } from 'fs'
 import install from './install'
+
+const log = Logger()
 
 function CreateProject() {
   const cmd = new Command('create')
@@ -34,7 +37,7 @@ function CreateProject() {
       const { pn, pv, pm, tpl } = await Prompt({ project_name, template, phaser_version, package_manager, no_install })
 
       if (existsSync(project_name || pn)) {
-        console.log('ERROR', `Folder '${project_name || pn}' exist, try again with another project name!`)
+        log.error(`Folder '${project_name || pn}' exist, try again with another project name!`)
         process.exit(1)
       }
 
@@ -43,7 +46,7 @@ function CreateProject() {
       })
 
       if ((pm !== 'noone' && pm !== undefined) || !no_install) {
-        console.log('INFO', `Run install package with ${package_manager || pm}`)
+        log.info(`Run install package with ${package_manager || pm}`)
         await install(package_manager || pm, phaser_version || pv, resolve(project_name || pn))
       }
     })

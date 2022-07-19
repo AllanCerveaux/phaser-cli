@@ -14,7 +14,8 @@
   },
   "watch": [
     "./src/*.ts",
-    "./src/cli/**/*.ts"
+    "./src/cli/**/*.ts",
+    "./src/utils/**/*.ts"
   ],
   "env": {
     "NODE_ENV": "development"

@@ -1,5 +1,8 @@
+import { Logger } from '@utils/Logger'
 import generate from 'project-name-generator'
 import prompts from 'prompts'
+
+const log = Logger()
 
 async function Prompt({ project_name, template, phaser_version, package_manager, no_install }: any) {
   const questions = [
@@ -50,7 +53,7 @@ async function Prompt({ project_name, template, phaser_version, package_manager,
       pm: 'package_manager',
       pv: 'phaser_version'
     }
-    console.log(`
+    log.error(`
 You must specify a ${name[prompt.name]}:
   phaser-cli create <project_name> [--template] [--phaser-version] [--package-manager]
 For Example:

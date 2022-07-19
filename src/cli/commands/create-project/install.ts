@@ -1,5 +1,5 @@
-import { PackageManager, commandExist } from '@utils/'
-
+import { PackageManager } from '@utils/PackageManager'
+import { commandExist } from '@utils/commandExist'
 import { existsSync } from 'fs'
 
 async function install(package_manager: string, phaser_version: string, project_path: string) {
