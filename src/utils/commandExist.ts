@@ -1,11 +1,6 @@
-import path, { dirname } from 'path'
-
 import { access } from 'fs/promises'
-import { fileURLToPath } from 'url'
+import path from 'path'
 import { spawn } from 'child_process'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 function commandExist(cmd: string): Promise<boolean | { err: string }> {
   const isWin = process.platform === 'win32' || process.env.OSTYPE === 'cygwin' || process.env.OSTYPE === 'msys'
@@ -32,4 +27,4 @@ function commandExist(cmd: string): Promise<boolean | { err: string }> {
   })
 }
 
-export { __filename, __dirname, commandExist }
+export { commandExist }

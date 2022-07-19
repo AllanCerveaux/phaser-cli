@@ -1,11 +1,11 @@
 import { Command, Option } from 'commander'
 import { join, resolve } from 'path'
 
-import { existsSync } from 'fs'
-import { Tea } from 'tea-parser'
-import { __dirname } from '../../../utils'
-import install from './install'
 import Prompt from './prompt'
+import { Tea } from 'tea-parser'
+import { __dirname } from '@utils/'
+import { existsSync } from 'fs'
+import install from './install'
 
 function CreateProject() {
   const cmd = new Command('create')
